@@ -402,3 +402,46 @@ setTimeout(function(){
   }
 
 }, 5000);
+/* =========================
+   DOWNLOAD PDF
+========================= */
+
+function downloadPDF(){
+
+  const monthly =
+    document.getElementById("monthlyPayment").innerText;
+
+  const interest =
+    document.getElementById("totalInterest").innerText;
+
+  const text =
+
+  `
+  FINANCE PRO REPORT
+
+  Cuota Mensual:
+  ${monthly}
+
+  Intereses Totales:
+  ${interest}
+  `;
+
+
+  const blob =
+    new Blob([text], {type:"text/plain"});
+
+
+  const link =
+    document.createElement("a");
+
+
+  link.href =
+    URL.createObjectURL(blob);
+
+  link.download =
+    "finance-report.txt";
+
+
+  link.click();
+
+}

@@ -1382,3 +1382,35 @@ body{
   margin-bottom:20px;
 
 }
+/* =========================
+   PDF BUTTON
+========================= */
+
+.pdf-btn{
+
+  width:100%;
+
+  margin-top:20px;
+
+  padding:16px;
+
+  border:none;
+
+  border-radius:14px;
+
+  background:#0b2c6a;
+
+  color:white;
+
+  cursor:pointer;
+
+  transition:0.3s;
+
+}
+
+
+.pdf-btn:hover{
+
+  background:#2563eb;
+
+}
