@@ -406,7 +406,12 @@ setTimeout(function(){
    DOWNLOAD PDF
 ========================= */
 
-function downloadPDF(){
+async function downloadPDF(){
+
+  const { jsPDF } = window.jspdf;
+
+  const doc = new jsPDF();
+
 
   const monthly =
     document.getElementById("monthlyPayment").innerText;
@@ -414,34 +419,32 @@ function downloadPDF(){
   const interest =
     document.getElementById("totalInterest").innerText;
 
-  const text =
 
-  `
-  FINANCE PRO REPORT
+  doc.setFontSize(22);
 
-  Cuota Mensual:
-  ${monthly}
-
-  Intereses Totales:
-  ${interest}
-  `;
+  doc.text(
+    "FINANCE PRO REPORT",
+    20,
+    30
+  );
 
 
-  const blob =
-    new Blob([text], {type:"text/plain"});
+  doc.setFontSize(16);
+
+  doc.text(
+    "Cuota Mensual: " + monthly,
+    20,
+    60
+  );
 
 
-  const link =
-    document.createElement("a");
+  doc.text(
+    "Intereses Totales: " + interest,
+    20,
+    80
+  );
 
 
-  link.href =
-    URL.createObjectURL(blob);
-
-  link.download =
-    "finance-report.txt";
-
-
-  link.click();
+  doc.save("finance-report.pdf");
 
 }
