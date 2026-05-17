@@ -435,6 +435,8 @@ async function downloadPDF(){
     document.getElementById("totalInterest").innerText;
 
 
+  /* TITLE */
+
   doc.setFontSize(24);
 
   doc.text(
@@ -443,6 +445,8 @@ async function downloadPDF(){
     25
   );
 
+
+  /* INFOS */
 
   doc.setFontSize(16);
 
@@ -483,13 +487,54 @@ async function downloadPDF(){
   );
 
 
-  const today =
-    new Date().toLocaleDateString();
+  /* DATE & TIME */
+
+  const now = new Date();
+
+  const fecha =
+    now.toLocaleDateString();
+
+  const hora =
+    now.toLocaleTimeString();
+
 
   doc.text(
-    "Fecha: " + today,
+    "Fecha: " + fecha,
     20,
     160
+  );
+
+  doc.text(
+    "Hora: " + hora,
+    20,
+    175
+  );
+
+
+  /* SIGNATURE */
+
+  doc.text(
+    "Firma:",
+    20,
+    220
+  );
+
+  doc.line(
+    45,
+    220,
+    120,
+    220
+  );
+
+
+  /* FOOTER */
+
+  doc.setFontSize(12);
+
+  doc.text(
+    "Finance Pro Platform",
+    20,
+    280
   );
 
 
