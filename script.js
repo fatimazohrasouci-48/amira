@@ -1,135 +1,4 @@
-/* =========================
-   PRESTAMOS
-========================= */
-
-function calculateLoan(){
-
-  const object =
-    document.getElementById("object").value;
-
-  const capital =
-    parseFloat(document.getElementById("capital").value);
-
-  const months =
-    parseInt(document.getElementById("months").value);
-
-  const annualInterest =
-    parseFloat(document.getElementById("bankSelect").value);
-
-
-  if(isNaN(capital) || isNaN(months)){
-
-    alert("Introduce valores válidos");
-
-    return;
-
-  }
-
-
-  const monthlyInterest =
-    annualInterest / 100 / 12;
-
-
-  const payment =
-    (capital * monthlyInterest) /
-    (1 - Math.pow(1 + monthlyInterest, -months));
-
-
-  const totalPayment =
-    payment * months;
-
-
-  const totalInterest =
-    totalPayment - capital;
-
-
-  document.getElementById("monthlyPayment").innerHTML =
-    "€" + payment.toFixed(2);
-
-  document.getElementById("totalInterest").innerHTML =
-    "€" + totalInterest.toFixed(2);
-
-  document.getElementById("loanExplanation").innerHTML =
-
-  `
-  El préstamo para ${object}
-  tendrá una cuota mensual de
-  €${payment.toFixed(2)} durante
-  ${months} meses.
-  `;
-
-}
-
-
-
-/* =========================
-   VAN / TIR
-========================= */
-
-function calculateInvestment(){
-
-  const investment =
-    parseFloat(document.getElementById("investment").value);
-
-  const cashflow =
-    parseFloat(document.getElementById("cashflow").value);
-
-  const discount =
-    parseFloat(document.getElementById("discount").value) / 100;
-
-
-  const van =
-    (cashflow / (1 + discount)) - investment;
-
-
-  const tir =
-    ((cashflow - investment) / investment) * 100;
-
-
-  document.getElementById("vanResult").innerHTML =
-    "€" + van.toFixed(2);
-
-  document.getElementById("tirResult").innerHTML =
-    tir.toFixed(2) + "%";
-
-}
-
-
-
-/* =========================
-   MARGENES
-========================= */
-
-function calculateMargin(){
-
-  const income =
-    parseFloat(document.getElementById("income").value);
-
-  const expenses =
-    parseFloat(document.getElementById("expenses").value);
-
-
-  const profit =
-    income - expenses;
-
-
-  const margin =
-    (profit / income) * 100;
-
-
-  document.getElementById("profitResult").innerHTML =
-    "€" + profit.toFixed(2);
-
-  document.getElementById("marginResult").innerHTML =
-    margin.toFixed(2) + "%";
-
-}
-
-
-
-/* =========================
-   DARK MODE
-========================= */
+/* DARK MODE */
 
 function toggleDarkMode(){
 
@@ -138,10 +7,33 @@ function toggleDarkMode(){
 }
 
 
+/* SEARCH */
 
-/* =========================
-   IDIOMAS
-========================= */
+function searchSection(){
+
+  const input =
+
+    document.getElementById("searchInput")
+    .value
+    .toLowerCase();
+
+
+  if(input.includes("prest")){
+
+    window.location.href = "#prestamos";
+
+  }
+
+  else{
+
+    alert("Sección no encontrada");
+
+  }
+
+}
+
+
+/* IDIOMAS */
 
 const translations = {
 
@@ -151,19 +43,9 @@ const translations = {
     nav2:"Préstamos",
     nav3:"VAN / TIR",
     nav4:"Márgenes",
-    nav5:"Contacto",
-
-    heroTitle:
-    "Plataforma Financiera Inteligente",
-
-    heroText:
-    "Calcula préstamos, compara bancos y analiza inversiones.",
-
-    heroBtn:
-    "Comenzar"
+    nav5:"Contacto"
 
   },
-
 
   en:{
 
@@ -171,19 +53,9 @@ const translations = {
     nav2:"Loans",
     nav3:"NPV / IRR",
     nav4:"Margins",
-    nav5:"Contact",
-
-    heroTitle:
-    "Smart Financial Platform",
-
-    heroText:
-    "Calculate loans, compare banks and analyze investments.",
-
-    heroBtn:
-    "Start"
+    nav5:"Contact"
 
   },
-
 
   fr:{
 
@@ -191,19 +63,9 @@ const translations = {
     nav2:"Prêts",
     nav3:"VAN / TIR",
     nav4:"Marges",
-    nav5:"Contact",
-
-    heroTitle:
-    "Plateforme Financière Intelligente",
-
-    heroText:
-    "Calculez des prêts, comparez les banques et analysez les investissements.",
-
-    heroBtn:
-    "Commencer"
+    nav5:"Contact"
 
   },
-
 
   ar:{
 
@@ -211,21 +73,11 @@ const translations = {
     nav2:"القروض",
     nav3:"فان / تير",
     nav4:"الهوامش",
-    nav5:"اتصل بنا",
-
-    heroTitle:
-    "منصة مالية ذكية",
-
-    heroText:
-    "احسب القروض وقارن البنوك وحلل الاستثمارات.",
-
-    heroBtn:
-    "ابدأ"
+    nav5:"اتصل"
 
   }
 
 };
-
 
 
 function changeLanguage(lang){
@@ -248,163 +100,65 @@ function changeLanguage(lang){
   document.getElementById("nav5").innerHTML =
     t.nav5;
 
+}
 
-  /* HERO */
 
-  document.getElementById("hero-title").innerHTML =
-    t.heroTitle;
+/* PRESTAMOS */
 
-  document.getElementById("hero-text").innerHTML =
-    t.heroText;
+function calculateLoan(){
 
-  document.getElementById("hero-btn").innerHTML =
-    t.heroBtn;
+  const capital =
+
+    parseFloat(
+      document.getElementById("capital").value
+    );
+
+  const months =
+
+    parseInt(
+      document.getElementById("months").value
+    );
+
+  const annualInterest =
+
+    parseFloat(
+      document.getElementById("bankSelect").value
+    );
+
+
+  const monthlyInterest =
+
+    annualInterest / 100 / 12;
+
+
+  const payment =
+
+    (capital * monthlyInterest) /
+
+    (1 - Math.pow(1 + monthlyInterest, -months));
+
+
+  const totalPayment =
+    payment * months;
+
+
+  const totalInterest =
+    totalPayment - capital;
+
+
+  document.getElementById("monthlyPayment").innerHTML =
+
+    "€" + payment.toFixed(2);
+
+
+  document.getElementById("totalInterest").innerHTML =
+
+    "€" + totalInterest.toFixed(2);
 
 }
 
 
-
-/* =========================
-   NOVEDADES
-========================= */
-
-const noticias = [
-
-  {
-
-    categoria:
-      "FINANZAS",
-
-    titulo:
-      "Nuevas oportunidades de inversión",
-
-    texto:
-      "Expertos financieros recomiendan nuevas estrategias.",
-
-    imagen:
-      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1400"
-
-  },
-
-  {
-
-    categoria:
-      "BANCOS",
-
-    titulo:
-      "Los bancos reducen intereses",
-
-    texto:
-      "BBVA e ING anuncian cambios importantes.",
-
-    imagen:
-      "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1400"
-
-  },
-
-  {
-
-    categoria:
-      "LOGÍSTICA",
-
-    titulo:
-      "Nuevas soluciones para transporte",
-
-    texto:
-      "Las empresas apuestan por la digitalización logística.",
-
-    imagen:
-      "https://images.unsplash.com/photo-1494412651409-8963ce7935a7?q=80&w=1400"
-
-  }
-
-];
-
-
-const newsContainer =
-document.getElementById("newsContainer");
-
-
-function mostrarNoticias(){
-
-  if(!newsContainer) return;
-
-  noticias.forEach(function(noticia){
-
-    newsContainer.innerHTML +=
-
-    `
-    <div class="news-card">
-
-      <img src="${noticia.imagen}">
-
-      <div class="news-overlay">
-
-        <span class="news-category">
-
-          ${noticia.categoria}
-
-        </span>
-
-        <h3>
-
-          ${noticia.titulo}
-
-        </h3>
-
-        <p>
-
-          ${noticia.texto}
-
-        </p>
-
-      </div>
-
-    </div>
-    `;
-
-  });
-
-}
-
-
-mostrarNoticias();
-/* =========================
-   COMPARE BANKS
-========================= */
-
-function compareBank(bank, rate){
-
-  alert(
-
-    "Banco: " + bank +
-
-    "\nTasa de interés: " + rate +
-
-    "\nComparación disponible."
-
-  );
-
-}
-/* =========================
-   ALERT AUTO HIDE
-========================= */
-
-setTimeout(function(){
-
-  const alertBox =
-    document.getElementById("alertBox");
-
-  if(alertBox){
-
-    alertBox.style.display = "none";
-
-  }
-
-}, 5000);
-/* =========================
-   DOWNLOAD PDF
-========================= */
+/* PDF */
 
 async function downloadPDF(){
 
@@ -413,194 +167,48 @@ async function downloadPDF(){
   const doc = new jsPDF();
 
 
-  const object =
-    document.getElementById("object").value;
-
-  const capital =
-    document.getElementById("capital").value;
-
-  const months =
-    document.getElementById("months").value;
-
-  const bank =
-    document.getElementById("bankSelect");
-
-  const bankName =
-    bank.options[bank.selectedIndex].text;
-
   const monthly =
-    document.getElementById("monthlyPayment").innerText;
+
+    document.getElementById("monthlyPayment")
+    .innerText;
+
 
   const interest =
-    document.getElementById("totalInterest").innerText;
 
+    document.getElementById("totalInterest")
+    .innerText;
 
-  /* TITLE */
-
-  doc.setFontSize(24);
 
   doc.text(
-    "FINANCE PRO REPORT",
+    "Finance Pro Report",
     20,
-    25
+    30
   );
 
-
-  /* INFOS */
-
-  doc.setFontSize(16);
-
-  doc.text(
-    "Objeto: " + object,
-    20,
-    50
-  );
-
-  doc.text(
-    "Capital: €" + capital,
-    20,
-    65
-  );
-
-  doc.text(
-    "Duracion: " + months + " meses",
-    20,
-    80
-  );
-
-  doc.text(
-    "Banco: " + bankName,
-    20,
-    95
-  );
 
   doc.text(
     "Cuota Mensual: " + monthly,
     20,
-    120
+    60
   );
+
 
   doc.text(
     "Intereses Totales: " + interest,
     20,
-    135
-  );
-
-
-  /* DATE & TIME */
-
-  const now = new Date();
-
-  const fecha =
-    now.toLocaleDateString();
-
-  const hora =
-    now.toLocaleTimeString();
-
-
-  doc.text(
-    "Fecha: " + fecha,
-    20,
-    160
-  );
-
-  doc.text(
-    "Hora: " + hora,
-    20,
-    175
-  );
-
-
-  /* SIGNATURE */
-
-  doc.text(
-    "Firma:",
-    20,
-    220
-  );
-
-  doc.line(
-    45,
-    220,
-    120,
-    220
-  );
-
-
-  /* FOOTER */
-
-  doc.setFontSize(12);
-
-  doc.text(
-    "Finance Pro Platform",
-    20,
-    280
+    80
   );
 
 
   doc.save("finance-report.pdf");
 
 }
-/* =========================
-   CHART
-========================= */
-
-const ctx =
-document.getElementById('financeChart');
 
 
-new Chart(ctx, {
-
-  type:'line',
-
-  data:{
-
-    labels:[
-      'Enero',
-      'Febrero',
-      'Marzo',
-      'Abril',
-      'Mayo',
-      'Junio'
-    ],
-
-    datasets:[{
-
-      label:'Ingresos',
-
-      data:[
-        1200,
-        1900,
-        3000,
-        2500,
-        4200,
-        5000
-      ],
-
-      borderColor:'#2563eb',
-
-      backgroundColor:'rgba(37,99,235,0.2)',
-
-      tension:0.4,
-
-      fill:true
-
-    }]
-
-  },
-
-  options:{
-
-    responsive:true
-
-  }
-
-});
-/* =========================
-   FAQ INTERACTIVE
-========================= */
+/* FAQ */
 
 const faqQuestions =
+
 document.querySelectorAll(".faq-question");
 
 
@@ -616,47 +224,3 @@ faqQuestions.forEach(function(question){
   });
 
 });
-/* =========================
-   SEARCH SECTION
-========================= */
-
-function searchSection(){
-
-  const input =
-
-    document.getElementById("searchInput")
-    .value
-    .toLowerCase();
-
-
-  if(input.includes("prest")){
-
-    window.location.href = "#prestamos";
-
-  }
-
-  else if(input.includes("van")){
-
-    window.location.href = "#investment";
-
-  }
-
-  else if(input.includes("marg")){
-
-    window.location.href = "#margenes";
-
-  }
-
-  else if(input.includes("contact")){
-
-    window.location.href = "#contacto";
-
-  }
-
-  else{
-
-    alert("Sección no encontrada");
-
-  }
-
-}
