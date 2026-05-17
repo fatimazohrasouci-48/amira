@@ -413,6 +413,21 @@ async function downloadPDF(){
   const doc = new jsPDF();
 
 
+  const object =
+    document.getElementById("object").value;
+
+  const capital =
+    document.getElementById("capital").value;
+
+  const months =
+    document.getElementById("months").value;
+
+  const bank =
+    document.getElementById("bankSelect");
+
+  const bankName =
+    bank.options[bank.selectedIndex].text;
+
   const monthly =
     document.getElementById("monthlyPayment").innerText;
 
@@ -420,28 +435,61 @@ async function downloadPDF(){
     document.getElementById("totalInterest").innerText;
 
 
-  doc.setFontSize(22);
+  doc.setFontSize(24);
 
   doc.text(
     "FINANCE PRO REPORT",
     20,
-    30
+    25
   );
 
 
   doc.setFontSize(16);
 
   doc.text(
-    "Cuota Mensual: " + monthly,
+    "Objeto: " + object,
     20,
-    60
+    50
   );
 
+  doc.text(
+    "Capital: €" + capital,
+    20,
+    65
+  );
+
+  doc.text(
+    "Duracion: " + months + " meses",
+    20,
+    80
+  );
+
+  doc.text(
+    "Banco: " + bankName,
+    20,
+    95
+  );
+
+  doc.text(
+    "Cuota Mensual: " + monthly,
+    20,
+    120
+  );
 
   doc.text(
     "Intereses Totales: " + interest,
     20,
-    80
+    135
+  );
+
+
+  const today =
+    new Date().toLocaleDateString();
+
+  doc.text(
+    "Fecha: " + today,
+    20,
+    160
   );
 
 
