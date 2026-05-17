@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>
+    Finance Pro Platform
+  </title>
+
+  <link rel="stylesheet"
+        href="style.css">
+
+</head>
+
+<body>
+
+
+<!-- =========================
+     TOPBAR
+========================= -->
+
+<div class="topbar">
+
+  <p>
+    Plataforma Financiera Profesional
+  </p>
+
+  <div class="languages">
+
+    <button onclick="changeLanguage('es')">
+      ES
+    </button>
+
+    <button onclick="changeLanguage('en')">
+      EN
+    </button>
+
+    <button onclick="changeLanguage('fr')">
+      FR
+    </button>
+
+    <button onclick="changeLanguage('ar')">
+      AR
+    </button>
+
+  </div>
+
+</div>
+
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+  <div class="logo"
+       id="logo">
+
+    Finance Pro
+
+  </div>
+
+  <ul class="nav-links">
+
+    <li>
+      <a href="#"
+         id="nav1">
+
+        Inicio
+
+      </a>
+    </li>
+
+    <li>
+      <a href="#prestamos"
+         id="nav2">
+
+        Préstamos
+
+      </a>
+    </li>
+
+    <li>
+      <a href="#investment"
+         id="nav3">
+
+        VAN / TIR
+
+      </a>
+    </li>
+
+    <li>
+      <a href="#margenes"
+         id="nav4">
+
+        Márgenes
+
+      </a>
+    </li>
+
+    <li>
+      <a href="#contacto"
+         id="nav5">
+
+        Contacto
+
+      </a>
+    </li>
+
+  </ul>
+
+
+  <button onclick="toggleDarkMode()"
+          class="dark-btn">
+
+    🌙
+
+  </button>
+
+</nav>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+  <div class="overlay"></div>
+
+  <div class="hero-content">
+
+    <h1 id="hero-title">
+
+      Plataforma Financiera Inteligente
+
+    </h1>
+
+    <p id="hero-text">
+
+      Calcula préstamos, compara bancos y analiza inversiones.
+
+    </p>
+
+    <button class="hero-btn"
+            id="hero-btn">
+
+      Comenzar
+
+    </button>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     PRESTAMOS
+========================= -->
+
+<section class="calculator-section"
+         id="prestamos">
+
+  <div class="calculator-card">
+
+    <h2>
+      💰 Calculadora de Préstamos
+    </h2>
+
+
+    <div class="input-group">
+
+      <label>
+        Objeto
+      </label>
+
+      <input type="text"
+             id="object"
+             placeholder="Coche">
+
+    </div>
+
+
+    <div class="input-group">
+
+      <label>
+        Capital (€)
+      </label>
+
+      <input type="number"
+             id="capital">
+
+    </div>
+
+
+    <div class="input-group">
+
+      <label>
+        Duración (meses)
+      </label>
+
+      <input type="number"
+             id="months">
+
+    </div>
+
+
+    <div class="input-group">
+
+      <label>
+        Banco
+      </label>
+
+      <select id="bankSelect">
+
+        <option value="4.5">
+          BBVA - 4.5%
+        </option>
+
+        <option value="5">
+          Santander - 5%
+        </option>
+
+        <option value="4.2">
+          CaixaBank - 4.2%
+        </option>
+
+        <option value="5.49">
+          ING - 5.49%
+        </option>
+
+        <option value="4.8">
+          Caja Rural - 4.8%
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <button onclick="calculateLoan()"
+            class="calculate-btn">
+
+      Calcular
+
+    </button>
+
+
+    <div class="results">
+
+      <div class="result-box">
+
+        <h3>
+          Cuota Mensual
+        </h3>
+
+        <p id="monthlyPayment">
+          €0.00
+        </p>
+
+      </div>
+
+
+      <div class="result-box">
+
+        <h3>
+          Intereses Totales
+        </h3>
+
+        <p id="totalInterest">
+          €0.00
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="explanation"
+         id="loanExplanation">
+
+      Resultado del préstamo...
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     VAN / TIR
+========================= -->
+
+<section class="investment-section"
+         id="investment">
+
+  <div class="investment-card">
+
+    <h2>
+      📈 VAN / TIR
+    </h2>
+
+
+    <div class="input-group">
+
+      <label>
+        Inversión Inicial (€)
+      </label>
+
+      <input type="number"
+             id="investment">
+
+    </div>
+
+
+    <div class="input-group">
+
+      <label>
+        Flujo de Caja (€)
+      </label>
+
+      <input type="number"
+             id="cashflow">
+
+    </div>
+
+
+    <div class="input-group">
+
+      <label>
+        Tasa de Descuento (%)
+      </label>
+
+      <input type="number"
+             id="discount">
+
+    </div>
+
+
+    <button onclick="calculateInvestment()"
+            class="calculate-btn">
+
+      Calcular VAN / TIR
+
+    </button>
+
+
+    <div class="results">
+
+      <div class="result-box">
+
+        <h3>
+          VAN
+        </h3>
+
+        <p id="vanResult">
+          €0.00
+        </p>
+
+      </div>
+
+
+      <div class="result-box">
+
+        <h3>
+          TIR
+        </h3>
+
+        <p id="tirResult">
+          0%
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="explanation"
+         id="investmentExplanation">
+
+      Resultado de inversión...
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     MARGENES
+========================= -->
+
+<section class="calculator-section"
+         id="margenes">
+
+  <div class="calculator-card">
+
+    <h2>
+      💹 Calculadora de Márgenes
+    </h2>
+
+
+    <div class="input-group">
+
+      <label>
+        Ingresos (€)
+      </label>
+
+      <input type="number"
+             id="income">
+
+    </div>
+
+
+    <div class="input-group">
+
+      <label>
+        Gastos (€)
+      </label>
+
+      <input type="number"
+             id="expenses">
+
+    </div>
+
+
+    <button onclick="calculateMargin()"
+            class="calculate-btn">
+
+      Calcular Margen
+
+    </button>
+
+
+    <div class="results">
+
+      <div class="result-box">
+
+        <h3>
+          Beneficio
+        </h3>
+
+        <p id="profitResult">
+          €0.00
+        </p>
+
+      </div>
+
+
+      <div class="result-box">
+
+        <h3>
+          Margen
+        </h3>
+
+        <p id="marginResult">
+          0%
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     NOVEDADES
+========================= -->
+
+<section class="news-section">
+
+  <h2>
+    📰 Últimas Novedades
+  </h2>
+
+  <div class="news-slider"
+       id="newsContainer">
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     NEWSLETTER
+========================= -->
+
+<section class="newsletter">
+
+  <h2>
+    Suscríbete a nuestras novedades
+  </h2>
+
+  <div class="newsletter-box">
+
+    <input type="email"
+           placeholder="Tu email">
+
+    <button>
+      Suscribirse
+    </button>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     CONTACTO
+========================= -->
+
+<section class="contact-section"
+         id="contacto">
+
+  <h2>
+    📞 Contacto
+  </h2>
+
+
+  <div class="contact-grid">
+
+
+    <div class="contact-info">
+
+      <h3>
+        📧 Email
+      </h3>
+
+      <p>
+        ninasam806@gmail.com
+      </p>
+
+
+      <h3>
+        📱 WhatsApp
+      </h3>
+
+      <p>
+        +34 652 547 529
+      </p>
+
+
+      <h3>
+        📍 Localisation
+      </h3>
+
+      <p>
+        Zaragoza, España
+      </p>
+
+    </div>
+
+
+
+    <form class="contact-form">
+
+      <input type="text"
+             placeholder="Nombre">
+
+      <input type="email"
+             placeholder="Email">
+
+      <textarea placeholder="Escribir un mensaje"></textarea>
+
+      <button type="submit">
+        Enviar Mensaje
+      </button>
+
+    </form>
+
+  </div>
+
+</section>
+
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
