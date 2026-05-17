@@ -529,3 +529,60 @@ function mostrarNoticias(){
 
 
 mostrarNoticias();
+/* =========================
+   CHART
+========================= */
+
+const ctx =
+
+document.getElementById("financeChart");
+
+
+new Chart(ctx, {
+
+  type:'line',
+
+  data:{
+
+    labels:[
+      'Enero',
+      'Febrero',
+      'Marzo',
+      'Abril',
+      'Mayo',
+      'Junio'
+    ],
+
+    datasets:[{
+
+      label:'Ingresos',
+
+      data:[
+        1200,
+        1900,
+        3000,
+        2500,
+        4200,
+        5000
+      ],
+
+      borderColor:'#2563eb',
+
+      backgroundColor:
+      'rgba(37,99,235,0.2)',
+
+      tension:0.4,
+
+      fill:true
+
+    }]
+
+  },
+
+  options:{
+
+    responsive:true
+
+  }
+
+});
