@@ -369,3 +369,20 @@ function mostrarNoticias(){
 
 
 mostrarNoticias();
+/* =========================
+   COMPARE BANKS
+========================= */
+
+function compareBank(bank, rate){
+
+  alert(
+
+    "Banco: " + bank +
+
+    "\nTasa de interés: " + rate +
+
+    "\nComparación disponible."
+
+  );
+
+}
