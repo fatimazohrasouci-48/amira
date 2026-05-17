@@ -543,9 +543,8 @@ body{
   margin-left:250px;
 
 }
-/* =========================
-   DASHBOARD
-========================= */
+
+
 
 /* =========================
    DASHBOARD
@@ -1258,5 +1257,128 @@ body{
   margin-top:15px;
 
   line-height:1.6;
+
+}
+/* =========================
+   FAQ
+========================= */
+
+.faq-section{
+
+  padding:90px 40px;
+
+}
+
+
+.faq-section h2{
+
+  text-align:center;
+
+  font-size:45px;
+
+  color:#0b2c6a;
+
+  margin-bottom:50px;
+
+}
+
+
+.faq-container{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:25px;
+
+}
+
+
+.faq-box{
+
+  background:white;
+
+  padding:35px;
+
+  border-radius:20px;
+
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+
+}
+
+
+.faq-box h3{
+
+  color:#2563eb;
+
+  margin-bottom:15px;
+
+}
+
+
+
+/* =========================
+   CONSEJOS
+========================= */
+
+.tips-section{
+
+  padding:90px 40px;
+
+}
+
+
+.tips-section h2{
+
+  text-align:center;
+
+  font-size:45px;
+
+  color:#0b2c6a;
+
+  margin-bottom:50px;
+
+}
+
+
+.tips-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+  gap:30px;
+
+}
+
+
+.tip-card{
+
+  background:white;
+
+  padding:40px;
+
+  border-radius:25px;
+
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+
+  transition:0.3s;
+
+}
+
+
+.tip-card:hover{
+
+  transform:translateY(-8px);
+
+}
+
+
+.tip-card h3{
+
+  color:#2563eb;
+
+  margin-bottom:20px;
 
 }
