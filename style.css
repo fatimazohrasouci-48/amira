@@ -641,9 +641,15 @@ body{
    BANKS
 ========================= */
 
+/* =========================
+   BANKS
+========================= */
+
 .banks-section{
 
   padding:80px 40px;
+
+  margin-left:20px;
 
 }
 
@@ -663,9 +669,12 @@ body{
 
 .banks-grid{
 
+  width:100%;
+
   display:grid;
 
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
 
   gap:30px;
 
@@ -729,8 +738,6 @@ body{
   border-radius:14px;
 
   cursor:pointer;
-
-  transition:0.3s;
 
 }
 
