@@ -791,29 +791,33 @@
 
     <!-- FORM -->
 
-    <form class="contact-form">
+   <form class="contact-form"
+      action="https://formspree.io/f/mojbabzn"
+      method="POST">
 
-      <input type="text"
-             placeholder="Nombre completo">
-
-
-      <input type="email"
-             placeholder="Correo electrónico">
-
-
-      <textarea placeholder="Enviar un mensaje">
-
-      </textarea>
+  <input type="text"
+         name="name"
+         placeholder="Nombre completo"
+         required>
 
 
-      <button type="submit">
+  <input type="email"
+         name="email"
+         placeholder="Correo electrónico"
+         required>
 
-        Enviar Mensaje
 
-      </button>
+  <textarea name="message"
+            placeholder="Enviar un mensaje"
+            required>
 
-    </form>
+  </textarea>
 
-  </div>
 
-</section>
+  <button type="submit">
+
+    Enviar Mensaje
+
+  </button>
+
+</form>
