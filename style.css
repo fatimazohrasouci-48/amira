@@ -1495,3 +1495,78 @@ select{
   }
 
 }
+/* =========================
+   DARK MODE FIX
+========================= */
+
+.dark{
+
+  background:#111827;
+
+  color:white;
+
+}
+
+
+.dark .navbar{
+
+  background:#0b2c6a;
+
+}
+
+
+.dark .calculator-card,
+.dark .investment-card,
+.dark .dashboard-card,
+.dark .bank-card,
+.dark .contact-info,
+.dark .contact-form,
+.dark .login-card,
+.dark .help-card,
+.dark .faq-item,
+.dark .newsletter{
+
+  background:#1f2937;
+
+  color:white;
+
+}
+
+
+.dark p,
+.dark h1,
+.dark h2,
+.dark h3,
+.dark a,
+.dark label{
+
+  color:white;
+
+}
+
+
+.dark input,
+.dark textarea,
+.dark select{
+
+  background:#374151;
+
+  color:white;
+
+  border:none;
+
+}
+
+
+.dark .faq-question{
+
+  color:white;
+
+}
+
+
+.dark .faq-answer{
+
+  color:#d1d5db;
+
+}

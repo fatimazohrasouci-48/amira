@@ -67,6 +67,7 @@
 
   </div>
 
+
   <ul class="nav-links">
 
     <li>
@@ -117,12 +118,50 @@
   </ul>
 
 
-  <button onclick="toggleDarkMode()"
-          class="dark-btn">
+  <div class="nav-right">
 
-    🌙
+    <input type="text"
+           id="searchInput"
+           placeholder="Buscar...">
 
-  </button>
+
+    <button onclick="searchSection()"
+            class="search-btn">
+
+      🔍
+
+    </button>
+
+
+    <button onclick="toggleDarkMode()"
+            class="dark-btn">
+
+      🌙
+
+    </button>
+
+
+    <div class="languages">
+
+      <button onclick="changeLanguage('es')">
+        ES
+      </button>
+
+      <button onclick="changeLanguage('en')">
+        EN
+      </button>
+
+      <button onclick="changeLanguage('fr')">
+        FR
+      </button>
+
+      <button onclick="changeLanguage('ar')">
+        AR
+      </button>
+
+    </div>
+
+  </div>
 
 </nav>
 <!-- =========================
