@@ -318,10 +318,6 @@ function calculateMargin(){
 }
 
 
-/* =========================
-   PDF
-========================= */
-
 async function downloadPDF(){
 
   const { jsPDF } = window.jspdf;
@@ -330,13 +326,36 @@ async function downloadPDF(){
 
 
   const monthly =
+
     document.getElementById("monthlyPayment")
     .innerText;
 
 
   const interest =
+
     document.getElementById("totalInterest")
     .innerText;
+
+
+  const bank =
+
+    document.getElementById("bankSelect")
+    .options[
+      document.getElementById("bankSelect")
+      .selectedIndex
+    ].text;
+
+
+  const capital =
+
+    document.getElementById("capital")
+    .value;
+
+
+  const months =
+
+    document.getElementById("months")
+    .value;
 
 
   const now =
@@ -355,16 +374,37 @@ async function downloadPDF(){
   doc.setFontSize(16);
 
   doc.text(
+    "Banco: " + bank,
+    20,
+    60
+  );
+
+
+  doc.text(
+    "Capital: €" + capital,
+    20,
+    80
+  );
+
+
+  doc.text(
+    "Meses: " + months,
+    20,
+    100
+  );
+
+
+  doc.text(
     "Cuota Mensual: " + monthly,
     20,
-    70
+    130
   );
 
 
   doc.text(
     "Intereses Totales: " + interest,
     20,
-    90
+    150
   );
 
 
@@ -372,7 +412,7 @@ async function downloadPDF(){
     "Fecha: " +
     now.toLocaleDateString(),
     20,
-    120
+    190
   );
 
 
@@ -380,29 +420,28 @@ async function downloadPDF(){
     "Hora: " +
     now.toLocaleTimeString(),
     20,
-    140
+    210
   );
 
 
   doc.text(
     "Firma:",
     20,
-    220
+    250
   );
 
 
   doc.line(
     45,
-    220,
+    250,
     120,
-    220
+    250
   );
 
 
   doc.save("finance-report.pdf");
 
 }
-
 
 /* =========================
    ALERT
