@@ -1,4 +1,6 @@
-/* DARK MODE */
+/* =========================
+   DARK MODE
+========================= */
 
 function toggleDarkMode(){
 
@@ -7,7 +9,9 @@ function toggleDarkMode(){
 }
 
 
-/* SEARCH */
+/* =========================
+   SEARCH
+========================= */
 
 function searchSection(){
 
@@ -24,6 +28,24 @@ function searchSection(){
 
   }
 
+  else if(input.includes("van")){
+
+    window.location.href = "#investment";
+
+  }
+
+  else if(input.includes("marg")){
+
+    window.location.href = "#margenes";
+
+  }
+
+  else if(input.includes("contact")){
+
+    window.location.href = "#contacto";
+
+  }
+
   else{
 
     alert("Sección no encontrada");
@@ -33,7 +55,9 @@ function searchSection(){
 }
 
 
-/* IDIOMAS */
+/* =========================
+   IDIOMAS
+========================= */
 
 const translations = {
 
@@ -43,9 +67,16 @@ const translations = {
     nav2:"Préstamos",
     nav3:"VAN / TIR",
     nav4:"Márgenes",
-    nav5:"Contacto"
+    nav5:"Contacto",
+
+    heroTitle:
+    "Plataforma Financiera Inteligente",
+
+    heroText:
+    "Calcula préstamos, compara bancos y analiza inversiones."
 
   },
+
 
   en:{
 
@@ -53,9 +84,16 @@ const translations = {
     nav2:"Loans",
     nav3:"NPV / IRR",
     nav4:"Margins",
-    nav5:"Contact"
+    nav5:"Contact",
+
+    heroTitle:
+    "Smart Financial Platform",
+
+    heroText:
+    "Calculate loans, compare banks and analyze investments."
 
   },
+
 
   fr:{
 
@@ -63,9 +101,16 @@ const translations = {
     nav2:"Prêts",
     nav3:"VAN / TIR",
     nav4:"Marges",
-    nav5:"Contact"
+    nav5:"Contact",
+
+    heroTitle:
+    "Plateforme Financière Intelligente",
+
+    heroText:
+    "Calculez des prêts et comparez les banques."
 
   },
+
 
   ar:{
 
@@ -73,7 +118,13 @@ const translations = {
     nav2:"القروض",
     nav3:"فان / تير",
     nav4:"الهوامش",
-    nav5:"اتصل"
+    nav5:"اتصل",
+
+    heroTitle:
+    "منصة مالية ذكية",
+
+    heroText:
+    "احسب القروض وقارن البنوك بسهولة."
 
   }
 
@@ -100,10 +151,19 @@ function changeLanguage(lang){
   document.getElementById("nav5").innerHTML =
     t.nav5;
 
+
+  document.getElementById("hero-title").innerHTML =
+    t.heroTitle;
+
+  document.getElementById("hero-text").innerHTML =
+    t.heroText;
+
 }
 
 
-/* PRESTAMOS */
+/* =========================
+   PRESTAMOS
+========================= */
 
 function calculateLoan(){
 
@@ -155,10 +215,112 @@ function calculateLoan(){
 
     "€" + totalInterest.toFixed(2);
 
+
+  document.getElementById("loanExplanation").innerHTML =
+
+    "La cuota mensual es de €" +
+    payment.toFixed(2);
+
 }
 
 
-/* PDF */
+/* =========================
+   VAN / TIR
+========================= */
+
+function calculateInvestment(){
+
+  const investment =
+
+    parseFloat(
+      document.getElementById("investment").value
+    );
+
+  const cashflow =
+
+    parseFloat(
+      document.getElementById("cashflow").value
+    );
+
+  const discount =
+
+    parseFloat(
+      document.getElementById("discount").value
+    );
+
+
+  const van =
+
+    cashflow / (1 + discount / 100)
+    - investment;
+
+
+  const tir =
+
+    ((cashflow - investment)
+    / investment) * 100;
+
+
+  document.getElementById("vanResult").innerHTML =
+
+    "€" + van.toFixed(2);
+
+
+  document.getElementById("tirResult").innerHTML =
+
+    tir.toFixed(2) + "%";
+
+
+  document.getElementById("investmentExplanation").innerHTML =
+
+    "El proyecto tiene un VAN de €" +
+    van.toFixed(2);
+
+}
+
+
+/* =========================
+   MARGENES
+========================= */
+
+function calculateMargin(){
+
+  const income =
+
+    parseFloat(
+      document.getElementById("income").value
+    );
+
+  const expenses =
+
+    parseFloat(
+      document.getElementById("expenses").value
+    );
+
+
+  const profit =
+    income - expenses;
+
+
+  const margin =
+    (profit / income) * 100;
+
+
+  document.getElementById("profitResult").innerHTML =
+
+    "€" + profit.toFixed(2);
+
+
+  document.getElementById("marginResult").innerHTML =
+
+    margin.toFixed(2) + "%";
+
+}
+
+
+/* =========================
+   PDF
+========================= */
 
 async function downloadPDF(){
 
@@ -168,16 +330,20 @@ async function downloadPDF(){
 
 
   const monthly =
-
     document.getElementById("monthlyPayment")
     .innerText;
 
 
   const interest =
-
     document.getElementById("totalInterest")
     .innerText;
 
+
+  const now =
+    new Date();
+
+
+  doc.setFontSize(24);
 
   doc.text(
     "Finance Pro Report",
@@ -186,17 +352,50 @@ async function downloadPDF(){
   );
 
 
+  doc.setFontSize(16);
+
   doc.text(
     "Cuota Mensual: " + monthly,
     20,
-    60
+    70
   );
 
 
   doc.text(
     "Intereses Totales: " + interest,
     20,
-    80
+    90
+  );
+
+
+  doc.text(
+    "Fecha: " +
+    now.toLocaleDateString(),
+    20,
+    120
+  );
+
+
+  doc.text(
+    "Hora: " +
+    now.toLocaleTimeString(),
+    20,
+    140
+  );
+
+
+  doc.text(
+    "Firma:",
+    20,
+    220
+  );
+
+
+  doc.line(
+    45,
+    220,
+    120,
+    220
   );
 
 
@@ -205,7 +404,21 @@ async function downloadPDF(){
 }
 
 
-/* FAQ */
+/* =========================
+   ALERT
+========================= */
+
+setTimeout(function(){
+
+  document.getElementById("alertBox")
+  .style.display = "none";
+
+}, 6000);
+
+
+/* =========================
+   FAQ
+========================= */
 
 const faqQuestions =
 
@@ -224,3 +437,95 @@ faqQuestions.forEach(function(question){
   });
 
 });
+
+
+/* =========================
+   BANK COMPARE
+========================= */
+
+function compareBank(bank, rate){
+
+  alert(
+    bank + " ofrece una tasa de " + rate
+  );
+
+}
+
+
+/* =========================
+   NEWS
+========================= */
+
+const news = [
+
+  {
+
+    title:
+    "Nueva Hipoteca Inteligente",
+
+    text:
+    "Los bancos ofrecen nuevas soluciones digitales.",
+
+    image:
+    "https://images.unsplash.com/photo-1554224154-26032ffc0d07?q=80&w=1400"
+
+  },
+
+
+  {
+
+    title:
+    "Fintech y IA",
+
+    text:
+    "La inteligencia artificial transforma las finanzas.",
+
+    image:
+    "https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1400"
+
+  }
+
+];
+
+
+function mostrarNoticias(){
+
+  const container =
+
+    document.getElementById("newsContainer");
+
+
+  news.forEach(function(item){
+
+    container.innerHTML += `
+
+      <div class="news-card">
+
+        <img src="${item.image}">
+
+        <div class="news-overlay">
+
+          <span class="news-category">
+            Finanzas
+          </span>
+
+          <h3>
+            ${item.title}
+          </h3>
+
+          <p>
+            ${item.text}
+          </p>
+
+        </div>
+
+      </div>
+
+    `;
+
+  });
+
+}
+
+
+mostrarNoticias();
