@@ -386,3 +386,19 @@ function compareBank(bank, rate){
   );
 
 }
+/* =========================
+   ALERT AUTO HIDE
+========================= */
+
+setTimeout(function(){
+
+  const alertBox =
+    document.getElementById("alertBox");
+
+  if(alertBox){
+
+    alertBox.style.display = "none";
+
+  }
+
+}, 5000);
