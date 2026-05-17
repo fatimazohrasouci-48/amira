@@ -127,16 +127,33 @@ body{
 
   align-items:center;
 
-  gap:20px;
+  gap:15px;
 
 }
 
 
-.search-icon{
+#searchInput{
+
+  padding:10px 15px;
+
+  border:none;
+
+  border-radius:12px;
+
+}
+
+
+.search-btn{
+
+  border:none;
+
+  background:#2563eb;
 
   color:white;
 
-  font-size:24px;
+  padding:10px 15px;
+
+  border-radius:12px;
 
   cursor:pointer;
 
@@ -147,7 +164,7 @@ body{
 
   border:none;
 
-  background:#2563eb;
+  background:#111827;
 
   color:white;
 

@@ -616,3 +616,47 @@ faqQuestions.forEach(function(question){
   });
 
 });
+/* =========================
+   SEARCH SECTION
+========================= */
+
+function searchSection(){
+
+  const input =
+
+    document.getElementById("searchInput")
+    .value
+    .toLowerCase();
+
+
+  if(input.includes("prest")){
+
+    window.location.href = "#prestamos";
+
+  }
+
+  else if(input.includes("van")){
+
+    window.location.href = "#investment";
+
+  }
+
+  else if(input.includes("marg")){
+
+    window.location.href = "#margenes";
+
+  }
+
+  else if(input.includes("contact")){
+
+    window.location.href = "#contacto";
+
+  }
+
+  else{
+
+    alert("Sección no encontrada");
+
+  }
+
+}

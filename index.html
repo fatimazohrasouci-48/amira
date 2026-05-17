@@ -102,6 +102,9 @@
 
 
 
+# Premium Navbar HTML
+
+```html
 <!-- =========================
      PREMIUM NAVBAR
 ========================= -->
@@ -118,32 +121,47 @@
   <ul class="nav-links">
 
     <li>
-      <a href="#">
+      <a href="#"
+         id="nav1">
+
         Inicio
+
       </a>
     </li>
 
     <li>
-      <a href="#prestamos">
+      <a href="#prestamos"
+         id="nav2">
+
         Préstamos
+
       </a>
     </li>
 
     <li>
-      <a href="#investment">
+      <a href="#investment"
+         id="nav3">
+
         VAN / TIR
+
       </a>
     </li>
 
     <li>
-      <a href="#margenes">
+      <a href="#margenes"
+         id="nav4">
+
         Márgenes
+
       </a>
     </li>
 
     <li>
-      <a href="#contacto">
+      <a href="#contacto"
+         id="nav5">
+
         Contacto
+
       </a>
     </li>
 
@@ -152,9 +170,18 @@
 
   <div class="nav-right">
 
-    <span class="search-icon">
+    <input type="text"
+           id="searchInput"
+           placeholder="Buscar...">
+
+
+    <button onclick="searchSection()"
+            class="search-btn">
+
       🔍
-    </span>
+
+    </button>
+
 
     <button onclick="toggleDarkMode()"
             class="dark-btn">
@@ -166,6 +193,97 @@
   </div>
 
 </nav>
+```
+
+<!-- =========================
+     PREMIUM NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+  <div class="logo">
+
+    Finance Pro
+
+  </div>
+
+
+  <ul class="nav-links">
+
+    <li>
+      <a href="#"
+         id="nav1">
+
+        Inicio
+
+      </a>
+    </li>
+
+    <li>
+      <a href="#prestamos"
+         id="nav2">
+
+        Préstamos
+
+      </a>
+    </li>
+
+    <li>
+      <a href="#investment"
+         id="nav3">
+
+        VAN / TIR
+
+      </a>
+    </li>
+
+    <li>
+      <a href="#margenes"
+         id="nav4">
+
+        Márgenes
+
+      </a>
+    </li>
+
+    <li>
+      <a href="#contacto"
+         id="nav5">
+
+        Contacto
+
+      </a>
+    </li>
+
+  </ul>
+
+
+  <div class="nav-right">
+
+    <input type="text"
+           id="searchInput"
+           placeholder="Buscar...">
+
+
+    <button onclick="searchSection()"
+            class="search-btn">
+
+      🔍
+
+    </button>
+
+
+    <button onclick="toggleDarkMode()"
+            class="dark-btn">
+
+      🌙
+
+    </button>
+
+  </div>
+
+</nav>
+
 <!-- =========================
      ALERT
 ========================= -->
