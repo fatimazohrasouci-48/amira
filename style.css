@@ -547,48 +547,83 @@ body{
    DASHBOARD
 ========================= */
 
+./* =========================
+   DASHBOARD
+========================= */
+
 .dashboard{
 
   display:grid;
 
   grid-template-columns:repeat(4,1fr);
 
-  gap:25px;
+  gap:30px;
 
-  padding:60px 30px;
+  padding:70px 40px;
 
 }
 
 
 .dashboard-card{
 
-  background:white;
+  background:linear-gradient(
+    135deg,
+    #2563eb,
+    #0b2c6a
+  );
 
-  padding:35px;
+  color:white;
 
-  border-radius:20px;
+  padding:40px;
 
-  box-shadow:0 5px 20px rgba(0,0,0,0.1);
+  border-radius:25px;
 
   text-align:center;
 
-  transition:0.3s;
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+
+  transition:0.4s;
+
+  position:relative;
+
+  overflow:hidden;
+
+}
+
+
+.dashboard-card::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:120px;
+
+  height:120px;
+
+  background:rgba(255,255,255,0.1);
+
+  border-radius:50%;
+
+  top:-30px;
+
+  right:-30px;
 
 }
 
 
 .dashboard-card:hover{
 
-  transform:translateY(-8px);
+  transform:
+    translateY(-10px)
+    scale(1.03);
 
 }
 
 
 .dashboard-card h2{
 
-  color:#2563eb;
-
-  font-size:40px;
+  font-size:50px;
 
   margin-bottom:15px;
 
@@ -597,8 +632,111 @@ body{
 
 .dashboard-card p{
 
-  color:#6b7280;
+  font-size:20px;
 
-  font-size:18px;
+  opacity:0.9;
+
+}
+/* =========================
+   BANKS
+========================= */
+
+.banks-section{
+
+  padding:80px 40px;
+
+}
+
+
+.banks-section h2{
+
+  text-align:center;
+
+  font-size:45px;
+
+  color:#0b2c6a;
+
+  margin-bottom:50px;
+
+}
+
+
+.banks-grid{
+
+  display:grid;
+
+  grid-template-columns:repeat(3,1fr);
+
+  gap:30px;
+
+}
+
+
+.bank-card{
+
+  background:white;
+
+  padding:40px;
+
+  border-radius:25px;
+
+  text-align:center;
+
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+
+  transition:0.4s;
+
+}
+
+
+.bank-card:hover{
+
+  transform:translateY(-10px);
+
+}
+
+
+.bank-card h3{
+
+  font-size:32px;
+
+  color:#2563eb;
+
+  margin-bottom:20px;
+
+}
+
+
+.bank-card p{
+
+  font-size:20px;
+
+  margin-bottom:25px;
+
+}
+
+
+.bank-card button{
+
+  border:none;
+
+  background:#2563eb;
+
+  color:white;
+
+  padding:15px 25px;
+
+  border-radius:14px;
+
+  cursor:pointer;
+
+  transition:0.3s;
+
+}
+
+
+.bank-card button:hover{
+
+  background:#0b2c6a;
 
 }
