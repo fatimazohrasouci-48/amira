@@ -644,44 +644,27 @@ new Chart(ctx, {
 });
 function calculateInvestment(){
 
-  const investment =
+  const investment = Number(
+    document.getElementById("investment").value
+  );
 
-    parseFloat(
-      document.getElementById("investment").value
-    );
+  const cashflow = Number(
+    document.getElementById("cashflow").value
+  );
 
-  const cashflow =
+  const discount = Number(
+    document.getElementById("discount").value
+  );
 
-    parseFloat(
-      document.getElementById("cashflow").value
-    );
-
-  const discount =
-
-    parseFloat(
-      document.getElementById("discount").value
-    );
-
-
-  
-
-
-  /* =========================
-     VAN
-  ========================= */
 
   const van =
 
-    cashflow /
+    (cashflow /
 
-    (1 + discount / 100)
+    (1 + discount / 100))
 
     - investment;
 
-
-  /* =========================
-     TIR
-  ========================= */
 
   const tir =
 
