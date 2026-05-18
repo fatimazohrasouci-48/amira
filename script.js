@@ -325,6 +325,25 @@ async function downloadPDF(){
   const doc = new jsPDF();
 
 
+  const bank =
+
+    document.getElementById("bankSelect")
+    .options[
+      document.getElementById("bankSelect")
+      .selectedIndex
+    ].text;
+
+
+  const capital =
+
+    document.getElementById("capital").value;
+
+
+  const months =
+
+    document.getElementById("months").value;
+
+
   const monthly =
 
     document.getElementById("monthlyPayment")
@@ -337,82 +356,103 @@ async function downloadPDF(){
     .innerText;
 
 
-  const bank =
-
-    document.getElementById("bankSelect")
-    .options[
-      document.getElementById("bankSelect")
-      .selectedIndex
-    ].text;
+  const now = new Date();
 
 
-  const capital =
+  /* =========================
+     HEADER
+  ========================= */
 
-    document.getElementById("capital")
-    .value;
+  doc.setFillColor(11,44,106);
+
+  doc.rect(
+    0,
+    0,
+    210,
+    40,
+    "F"
+  );
 
 
-  const months =
+  doc.setTextColor(255,255,255);
 
-    document.getElementById("months")
-    .value;
-
-
-  const now =
-    new Date();
-
-
-  doc.setFontSize(24);
+  doc.setFontSize(28);
 
   doc.text(
     "Finance Pro Report",
     20,
-    30
+    25
   );
 
 
+  /* =========================
+     BODY
+  ========================= */
+
+  doc.setTextColor(0,0,0);
+
   doc.setFontSize(16);
+
+
+  doc.setFillColor(239,246,255);
+
+  doc.roundedRect(
+    15,
+    55,
+    180,
+    110,
+    8,
+    8,
+    "F"
+  );
+
 
   doc.text(
     "Banco: " + bank,
-    20,
-    60
+    25,
+    75
   );
 
 
   doc.text(
     "Capital: €" + capital,
-    20,
-    80
+    25,
+    95
   );
 
 
   doc.text(
     "Meses: " + months,
-    20,
-    100
+    25,
+    115
   );
 
 
   doc.text(
     "Cuota Mensual: " + monthly,
-    20,
-    130
+    25,
+    135
   );
 
 
   doc.text(
     "Intereses Totales: " + interest,
-    20,
-    150
+    25,
+    155
   );
 
+
+  /* =========================
+     DATE
+  ========================= */
+
+  doc.setFontSize(13);
 
   doc.text(
     "Fecha: " +
     now.toLocaleDateString(),
     20,
-    190
+    200
   );
 
 
@@ -423,6 +463,10 @@ async function downloadPDF(){
     210
   );
 
+
+  /* =========================
+     SIGNATURE
+  ========================= */
 
   doc.text(
     "Firma:",
@@ -439,7 +483,33 @@ async function downloadPDF(){
   );
 
 
-  doc.save("finance-report.pdf");
+  /* =========================
+     FOOTER
+  ========================= */
+
+  doc.setFillColor(11,44,106);
+
+  doc.rect(
+    0,
+    280,
+    210,
+    20,
+    "F"
+  );
+
+
+  doc.setTextColor(255,255,255);
+
+  doc.setFontSize(11);
+
+  doc.text(
+    "Finance Pro © 2026",
+    75,
+    292
+  );
+
+
+  doc.save("finance-pro-report.pdf");
 
 }
 
