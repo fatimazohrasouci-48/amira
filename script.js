@@ -718,23 +718,7 @@ function calculateInvestment(){
     );
 
 
-  if(
-
-    isNaN(investment) ||
-
-    isNaN(cashflow) ||
-
-    isNaN(discount)
-
-  ){
-
-    alert(
-      "Introduce todos los datos"
-    );
-
-    return;
-
-  }
+  
 
 
   /* =========================
