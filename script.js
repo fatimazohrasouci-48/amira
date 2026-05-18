@@ -224,62 +224,7 @@ function calculateLoan(){
 }
 
 
-/* =========================
-   VAN / TIR
-========================= */
 
-function calculateInvestment(){
-
-  const investment = Number(
-    document.getElementById("investment").value
-  );
-
-  const cashflow = Number(
-    document.getElementById("cashflow").value
-  );
-
-  const discount = Number(
-    document.getElementById("discount").value
-  );
-
-
-  const van =
-
-    cashflow /
-
-    (1 + discount / 100)
-
-    - investment;
-
-
-  const tir =
-
-    ((cashflow - investment)
-
-    / investment) * 100;
-
-
-  document.getElementById("vanResult").innerHTML =
-
-    "€" + van.toFixed(2);
-
-
-  document.getElementById("tirResult").innerHTML =
-
-    tir.toFixed(2) + "%";
-
-
-  document.getElementById("investmentExplanation").innerHTML =
-
-    "El proyecto tiene un VAN de €" +
-
-    van.toFixed(2) +
-
-    " y una TIR de " +
-
-    tir.toFixed(2) + "%";
-
-}
 
 /* =========================
    MARGENES
