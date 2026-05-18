@@ -230,34 +230,32 @@ function calculateLoan(){
 
 function calculateInvestment(){
 
-  const investment =
+  const investment = Number(
+    document.getElementById("investment").value
+  );
 
-    parseFloat(
-      document.getElementById("investment").value
-    );
+  const cashflow = Number(
+    document.getElementById("cashflow").value
+  );
 
-  const cashflow =
-
-    parseFloat(
-      document.getElementById("cashflow").value
-    );
-
-  const discount =
-
-    parseFloat(
-      document.getElementById("discount").value
-    );
+  const discount = Number(
+    document.getElementById("discount").value
+  );
 
 
   const van =
 
-    cashflow / (1 + discount / 100)
+    cashflow /
+
+    (1 + discount / 100)
+
     - investment;
 
 
   const tir =
 
     ((cashflow - investment)
+
     / investment) * 100;
 
 
@@ -274,10 +272,14 @@ function calculateInvestment(){
   document.getElementById("investmentExplanation").innerHTML =
 
     "El proyecto tiene un VAN de €" +
-    van.toFixed(2);
+
+    van.toFixed(2) +
+
+    " y una TIR de " +
+
+    tir.toFixed(2) + "%";
 
 }
-
 
 /* =========================
    MARGENES
